@@ -1,0 +1,52 @@
+name: Testing and validation
+
+on: [push, pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jdk: [ 11, 16 ]
+        db: [ h2, hsqldb, mysql, postgres ]
+        provider: [ hibernate ]
+
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+            MYSQL_DATABASE: jpa_test
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+          # Maps port on service container to the host
+            - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps port on service container to the host
+          - 5432:5432
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v2
+    - name: Set up JDK ${{ matrix.jdk }}
+      uses: actions/setup-java@v2.1.0
+      with:
+        java-version: ${{ matrix.jdk }}
+        distribution: 'adopt'
+    - name: Dependency cache
+      uses: actions/cache@v2.1.6
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+    - name: Run all tests
+      run: mvn clean verify -P ${{ matrix.db }},${{ matrix.provider }}
