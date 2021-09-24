@@ -671,6 +671,23 @@
                </delimiters>
             </configuration>
          </plugin>
+         <plugin>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen-maven</artifactId>
+            <version>${jooq.version}</version>
+            <executions>
+               <execution>
+                  <id>jooq-codegen</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                     <goal>generate</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <configurationFile>${project.build.resources[0].directory}/jooq-config.xml</configurationFile>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
 
