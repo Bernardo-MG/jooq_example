@@ -1,0 +1,39 @@
+<configuration
+   xmlns="http://www.jooq.org/xsd/jooq-codegen-3.15.0.xsd">
+   <generator>
+      <database>
+         <name>org.jooq.meta.extensions.jpa.JPADatabase</name>
+         <properties>
+
+            <!-- A comma separated list of Java packages, that contain your 
+               entities -->
+            <property>
+               <key>packages</key>
+               <value>com.bernardomg.example.querydsl.model</value>
+            </property>
+
+            <!-- Whether JPA 2.1 AttributeConverters should be auto-mapped 
+               to jOOQ Converters. Custom <forcedType/> configurations will have a higher 
+               priority than these auto-mapped converters. This defaults to true. -->
+            <property>
+               <key>useAttributeConverters</key>
+               <value>true</value>
+            </property>
+
+            <!-- The default schema for unqualified objects: - public: all 
+               unqualified objects are located in the PUBLIC (upper case) schema - none: 
+               all unqualified objects are located in the default schema (default) This 
+               configuration can be overridden with the schema mapping feature -->
+            <property>
+               <key>unqualifiedSchema</key>
+               <value>none</value>
+            </property>
+
+            <target>
+               <packageName>com.bernardomg.example.querydsl.model.generated</packageName>
+               <directory>@project.build.directory@/generated-sources/jooq</directory>
+            </target>
+         </properties>
+      </database>
+   </generator>
+</configuration>
