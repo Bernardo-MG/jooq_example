@@ -381,10 +381,6 @@
       <snakeyaml.version>1.29</snakeyaml.version>
       <spring.version>5.3.10</spring.version>
       <!-- ============================================== -->
-      <!-- ============== PLUGINS VERSIONS ============== -->
-      <!-- ============================================== -->
-      <plugin.processor.version>4.5</plugin.processor.version>
-      <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
       <site.skin.version>2.2.4</site.skin.version>

@@ -9,18 +9,16 @@
    <!-- ********************************************** -->
 
    <parent>
-   <groupId>com.bernardomg.example</groupId>
-   <artifactId>jooq-example</artifactId>
-   <version>1.1.0-SNAPSHOT</version>
+      <groupId>com.bernardomg.example</groupId>
+      <artifactId>jooq-example</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
    </parent>
 
    <!-- ********************************************** -->
    <!-- **************** PROJECT INFO **************** -->
    <!-- ********************************************** -->
 
-   <groupId>com.bernardomg.example</groupId>
    <artifactId>generator</artifactId>
-   <version>1.1.0-SNAPSHOT</version>
    <packaging>jar</packaging>
 
    <name>jOOQ Example - Generator</name>
@@ -152,170 +150,6 @@
             </pluginManagement>
          </build>
       </profile>
-      <!-- ============================================== -->
-      <!-- ============= DATABASE PROFILES ============== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- H2 database profile -->
-         <!-- Prepares the project to make use of an H2 in-memory database -->
-         <id>h2</id>
-         <properties>
-            <!-- Access data -->
-            <database.url>jdbc:h2:mem:jpa_test</database.url>
-            <database.username>sa</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <spring.profile.database>h2</spring.profile.database>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- H2 database -->
-               <groupId>com.h2database</groupId>
-               <artifactId>h2</artifactId>
-               <version>${h2.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- HSQLDB database profile -->
-         <!-- Prepares the project to make use of an HSQLDB in-memory database -->
-         <id>hsqldb</id>
-         <properties>
-            <!-- Access data -->
-            <database.url>jdbc:hsqldb:mem:jpa_test</database.url>
-            <database.username>sa</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <spring.profile.database>hsqldb</spring.profile.database>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- HSQLDB driver -->
-               <groupId>org.hsqldb</groupId>
-               <artifactId>hsqldb</artifactId>
-               <version>${hsqldb.version}</version>
-               <scope>test</scope>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- MySQL database profile -->
-         <!-- Prepares the project to make use of an H2 in-memory database -->
-         <id>mysql</id>
-         <properties>
-            <!-- Access data -->
-            <database.url>jdbc:mysql://localhost:3306/jpa_test</database.url>
-            <database.username>root</database.username>
-            <database.password>root</database.password>
-            <!-- Spring context -->
-            <spring.profile.database>mysql</spring.profile.database>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- MySQL connector -->
-               <groupId>mysql</groupId>
-               <artifactId>mysql-connector-java</artifactId>
-               <version>${mysql.version}</version>
-               <scope>test</scope>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- Postgres database profile -->
-         <!-- Prepares the project to make use of a Postgres database -->
-         <id>postgres</id>
-         <properties>
-            <!-- Access data -->
-            <database.url>jdbc:postgresql://localhost:5432/postgres</database.url>
-            <database.username>postgres</database.username>
-            <database.password>postgres</database.password>
-            <!-- Spring context -->
-            <spring.profile.database>postgres</spring.profile.database>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- Postgres connector -->
-               <groupId>org.postgresql</groupId>
-               <artifactId>postgresql</artifactId>
-               <version>${postgresql.version}</version>
-               <scope>test</scope>
-            </dependency>
-         </dependencies>
-      </profile>
-      <!-- ============================================== -->
-      <!-- ============ JPA PROVIDER PROFILES =========== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Hibernate JPA provider profile -->
-         <!-- Prepares the project to connect to the DB through Hibernate -->
-         <id>hibernate</id>
-         <properties>
-            <jpa.provider>hibernate</jpa.provider>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- jOOQ Hibernate -->
-               <groupId>org.jooq</groupId>
-               <artifactId>jooq-meta-extensions-hibernate</artifactId>
-               <version>${jooq.version}</version>
-            </dependency>
-            <dependency>
-               <!-- Hibernate Core -->
-               <groupId>org.hibernate</groupId>
-               <artifactId>hibernate-core</artifactId>
-               <version>${hibernate.version}</version>
-            </dependency>
-            <dependency>
-               <!-- Hibernate Ehcache -->
-               <groupId>org.hibernate</groupId>
-               <artifactId>hibernate-ehcache</artifactId>
-               <version>${hibernate.version}</version>
-               <scope>test</scope>
-            </dependency>
-         </dependencies>
-      </profile>
-      <!-- ============================================== -->
-      <!-- ============= DEPLOYMENT PROFILES ============ -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Release site deployment profile -->
-         <!-- Sets the site repository to point to the releases repo -->
-         <id>deployment-release</id>
-         <activation>
-            <!-- Active by default so the repository appears in the reports -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <distributionManagement>
-            <site>
-               <id>site</id>
-               <name>Project Documentation Site</name>
-               <!-- The URL should be set externally -->
-               <url>${site.release.url}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Development site deployment profile -->
-         <!-- Sets the site repository to point to the development repo -->
-         <id>deployment-development</id>
-         <distributionManagement>
-            <site>
-               <id>site-development</id>
-               <name>Project Development Documentation Site</name>
-               <!-- The URL should be set externally -->
-               <url>${site.develop.url}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Deployment profile -->
-         <!-- Sets ups the environment for deployment -->
-         <id>deployment</id>
-         <properties>
-            <!-- Tests are skipped -->
-            <maven.test.skip>true</maven.test.skip>
-         </properties>
-      </profile>
    </profiles>
 
    <!-- ********************************************** -->
@@ -348,44 +182,21 @@
    <!-- ********************************************** -->
 
    <properties>
-      <output.path>${project.build.directory}</output.path>
-      <!-- ============================================== -->
-      <!-- =============== MAVEN VERSION ================ -->
-      <!-- ============================================== -->
-      <maven.version>3.5.2</maven.version>
-      <!-- ============================================== -->
-      <!-- ================ JAVA VERSION ================ -->
-      <!-- ============================================== -->
-      <java.version>11</java.version>
       <!-- ============================================== -->
       <!-- =============== MANIFEST DATA ================ -->
       <!-- ============================================== -->
-      <manifest.name>com/bernardomg/example/jooq</manifest.name>
+      <manifest.name>com/bernardomg/example/jooq/generator</manifest.name>
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <guava.version>30.1.1-jre</guava.version>
       <h2.version>1.4.200</h2.version>
       <hibernate.version>5.5.7.Final</hibernate.version>
-      <hikari.version>3.4.5</hikari.version>
-      <hsqldb.version>2.6.0</hsqldb.version>
       <javaee.api.version>2.2</javaee.api.version>
-      <javax.annotation.version>1.3.2</javax.annotation.version>
-      <jaxb.version>2.3.1</jaxb.version>
       <jooq.version>3.15.3</jooq.version>
       <junit.jupiter.version>5.8.0</junit.jupiter.version>
       <junit.platform.version>1.8.0</junit.platform.version>
-      <liquibase.version>4.4.3</liquibase.version>
       <log4j.version>2.13.3</log4j.version>
-      <mysql.version>8.0.21</mysql.version>
-      <postgresql.version>42.2.23</postgresql.version>
       <slf4j.version>2.0.0-alpha1</slf4j.version>
-      <snakeyaml.version>1.29</snakeyaml.version>
-      <spring.version>5.3.10</spring.version>
-      <!-- ============================================== -->
-      <!-- ============== PLUGINS VERSIONS ============== -->
-      <!-- ============================================== -->
-      <plugin.processor.version>4.5</plugin.processor.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
@@ -396,52 +207,15 @@
    <!-- *************** DEPENDENCIES ***************** -->
    <!-- ********************************************** -->
 
-   <dependencyManagement>
-      <dependencies>
-         <dependency>
-            <!-- Spring Framework BOM -->
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-framework-bom</artifactId>
-            <version>${spring.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
-      </dependencies>
-   </dependencyManagement>
-
    <dependencies>
+      <!-- ============================================== -->
+      <!-- ================== PROJECT =================== -->
+      <!-- ============================================== -->
       <dependency>
          <!-- Model -->
          <groupId>com.bernardomg.example</groupId>
          <artifactId>model</artifactId>
          <version>${project.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- =================== GUAVA ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Guava -->
-         <groupId>com.google.guava</groupId>
-         <artifactId>guava</artifactId>
-         <version>${guava.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ==================== JPA ===================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- JPA API -->
-         <groupId>javax.persistence</groupId>
-         <artifactId>javax.persistence-api</artifactId>
-         <version>${javaee.api.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ==================== JAVAX =================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- JavaX Annotation -->
-         <groupId>javax.annotation</groupId>
-         <artifactId>javax.annotation-api</artifactId>
-         <version>${javax.annotation.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ==================== JOOQ ==================== -->
@@ -457,18 +231,6 @@
                <artifactId>slf4j-api</artifactId>
             </exclusion>
          </exclusions>
-      </dependency>
-      <dependency>
-         <!-- jOOQ Meta -->
-         <groupId>org.jooq</groupId>
-         <artifactId>jooq-meta</artifactId>
-         <version>${jooq.version}</version>
-      </dependency>
-      <dependency>
-         <!-- jOOQ Codegen -->
-         <groupId>org.jooq</groupId>
-         <artifactId>jooq-codegen</artifactId>
-         <version>${jooq.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== LOGGERS =================== -->
@@ -494,44 +256,8 @@
          <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
-      <!-- ============ VERSION ENFORCEMENT ============= -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- JAXB API -->
-         <groupId>javax.xml.bind</groupId>
-         <artifactId>jaxb-api</artifactId>
-         <version>${jaxb.version}</version>
-      </dependency>
-      <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
-      <dependency>
-         <!-- Hikari CP -->
-         <groupId>com.zaxxer</groupId>
-         <artifactId>HikariCP</artifactId>
-         <version>${hikari.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Liquibase -->
-         <groupId>org.liquibase</groupId>
-         <artifactId>liquibase-core</artifactId>
-         <version>${liquibase.version}</version>
-         <exclusions>
-            <exclusion>
-               <groupId>ch.qos.logback</groupId>
-               <artifactId>logback-classic</artifactId>
-            </exclusion>
-         </exclusions>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- SnakeYAML -->
-         <groupId>org.yaml</groupId>
-         <artifactId>snakeyaml</artifactId>
-         <version>${snakeyaml.version}</version>
-         <scope>test</scope>
-      </dependency>
       <dependency>
          <!-- JUnit Jupiter Engine -->
          <groupId>org.junit.jupiter</groupId>
@@ -546,18 +272,6 @@
          <version>${junit.platform.version}</version>
          <scope>test</scope>
       </dependency>
-      <dependency>
-         <!-- Spring Test -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-test</artifactId>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Spring Transactions -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-tx</artifactId>
-         <scope>test</scope>
-      </dependency>
    </dependencies>
 
    <!-- ********************************************** -->
@@ -566,89 +280,7 @@
 
    <build>
       <defaultGoal>clean package</defaultGoal>
-      <resources>
-         <resource>
-            <directory>src/main/resources/</directory>
-            <includes>
-               <!-- Configuration -->
-               <include>*.xml</include>
-            </includes>
-            <filtering>true</filtering>
-         </resource>
-      </resources>
-      <testResources>
-         <testResource>
-            <directory>src/test/resources/</directory>
-         </testResource>
-         <testResource>
-            <!-- Test resources -->
-            <directory>src/test/resources/</directory>
-            <includes>
-               <!-- Filter the contexts -->
-               <include>context/**/*.xml</include>
-               <!-- Filter the properties -->
-               <include>config/**/*.properties</include>
-            </includes>
-            <filtering>true</filtering>
-         </testResource>
-      </testResources>
       <plugins>
-         <plugin>
-            <!-- Changes -->
-            <!-- Takes care of the changes log -->
-            <!-- It is set to also validate the changes log file -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-changes-plugin</artifactId>
-            <executions>
-               <!-- Changes plugin is bound to the pre-site phase -->
-               <execution>
-                  <id>check-changes</id>
-                  <phase>pre-site</phase>
-                  <goals>
-                     <goal>changes-check</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>validate-changes</id>
-                  <phase>pre-site</phase>
-                  <goals>
-                     <goal>changes-validate</goal>
-                  </goals>
-                  <configuration>
-                     <failOnError>true</failOnError>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <!-- Site -->
-            <!-- Generates the Maven Site -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-site-plugin</artifactId>
-            <dependencies>
-               <dependency>
-                  <!-- Docs Maven Skin -->
-                  <groupId>com.bernardomg.maven.skins</groupId>
-                  <artifactId>docs-maven-skin</artifactId>
-                  <version>${site.skin.version}</version>
-               </dependency>
-            </dependencies>
-         </plugin>
-         <plugin>
-            <!-- Resources -->
-            <!-- Handles the project resources. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-resources-plugin</artifactId>
-            <configuration>
-               <!-- Variables to to override will be delimited with a @. -->
-               <!-- This avoids collisions with Spring variables. -->
-               <!-- So instead of replacing ${project.name} Maven will replace @project.name@. -->
-               <useDefaultDelimiters>false</useDefaultDelimiters>
-               <delimiters>
-                  <delimiter>@</delimiter>
-               </delimiters>
-            </configuration>
-         </plugin>
          <plugin>
             <!-- jOOQ Code Generator -->
             <groupId>org.jooq</groupId>
@@ -692,9 +324,28 @@
             </configuration>
             <dependencies>
                <dependency>
+                  <!-- jOOQ Codegen -->
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-codegen</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- jOOQ Meta -->
                   <groupId>org.jooq</groupId>
                   <artifactId>jooq-meta-extensions</artifactId>
                   <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- jOOQ Meta Hibernate -->
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-meta-extensions-hibernate</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- JPA API -->
+                  <groupId>javax.persistence</groupId>
+                  <artifactId>javax.persistence-api</artifactId>
+                  <version>${javaee.api.version}</version>
                </dependency>
             </dependencies>
          </plugin>
@@ -720,68 +371,5 @@
          </plugin>
       </plugins>
    </build>
-
-   <!-- ********************************************** -->
-   <!-- ****************** REPORTS ******************* -->
-   <!-- ********************************************** -->
-
-   <reporting>
-      <plugins>
-         <plugin>
-            <!-- Checkstyle -->
-            <!-- Checks that the source files comply with style standards -->
-            <!-- It is using a customized rules file -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <configuration>
-               <!-- The customized rules file -->
-               <configLocation>${project.basedir}/src/config/checkstyle/checkstyle-rules.xml</configLocation>
-               <!-- Excludes metamodel -->
-               <exclude>**/Q*Entity</exclude>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- Javadoc -->
-            <!-- Generates the javadocs -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-               <links>
-                  <link>https://javadoc.io/doc/org.eclipse.persistence/javax.persistence/</link>
-               </links>
-               <sourceFileExcludes>
-                  <!-- Excludes metamodel -->
-                  <exclude>**/Q*Entity</exclude>
-               </sourceFileExcludes>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- PMD -->
-            <!-- Checks that the code complies with a series of code quality rules -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <configuration>
-               <rulesets>
-                  <!-- The customized rules file -->
-                  <ruleset>${project.basedir}/src/config/pmd/pmd-rules.xml</ruleset>
-               </rulesets>
-               <excludes>
-                  <!-- Excludes metamodel -->
-                  <exclude>**/Q*Entity</exclude>
-               </excludes>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- SpotBugs -->
-            <!-- Checks for patterns which are prone to errors -->
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-maven-plugin</artifactId>
-            <configuration>
-               <!-- Exclusion patterns -->
-               <excludeFilterFile>${project.basedir}/src/config/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
-            </configuration>
-         </plugin>
-      </plugins>
-   </reporting>
 
 </project>
