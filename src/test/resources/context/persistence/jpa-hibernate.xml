@@ -14,7 +14,6 @@
    </description>
 
    <import resource="classpath:context/persistence/persistence.xml" />
-   <import resource="classpath:context/persistence/querydsl.xml" />
 
    <!-- JPA EntityManagerFactory -->
    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

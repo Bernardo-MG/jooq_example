@@ -1,5 +1,5 @@
 
-package com.bernardomg.example.querydsl.generator;
+package com.bernardomg.example.jooq.generator;
 
 import java.io.IOException;
 import java.nio.file.Files;

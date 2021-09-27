@@ -1,5 +1,5 @@
 
-package com.bernardomg.example.querydsl.test.config.annotation;
+package com.bernardomg.example.jooq.test.config.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -9,7 +9,7 @@
                entities -->
             <property>
                <key>packages</key>
-               <value>com.bernardomg.example.querydsl.model</value>
+               <value>com.bernardomg.example.jooq.model</value>
             </property>
 
             <!-- Whether JPA 2.1 AttributeConverters should be auto-mapped 
@@ -30,7 +30,7 @@
             </property>
 
             <target>
-               <packageName>com.bernardomg.example.querydsl.model.generated</packageName>
+               <packageName>com.bernardomg.example.jooq.model.generated</packageName>
                <directory>@project.build.directory@/generated-sources/jooq</directory>
             </target>
          </properties>

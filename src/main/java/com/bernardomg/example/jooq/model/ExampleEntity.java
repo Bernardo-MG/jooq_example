@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.querydsl.model;
+package com.bernardomg.example.jooq.model;
 
 import java.io.Serializable;
 

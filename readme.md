@@ -1,6 +1,6 @@
-# Querydsl Example
+# jOOQ Example
 
-An example showing how to set up Querydsl.
+An example showing how to set up jOOQ.
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -88,10 +88,10 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[issues]: https://github.com/bernardo-mg/querydsl-example/issues
-[javadoc-develop]: http://docs.bernardomg.com/development/maven/querydsl-example/apidocs/
-[javadoc-release]: http://docs.bernardomg.com/maven/querydsl-example/apidocs
+[issues]: https://github.com/bernardo-mg/jooq-example/issues
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/jooq-example/apidocs/
+[javadoc-release]: http://docs.bernardomg.com/maven/jooq-example/apidocs
 [license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/querydsl-example
-[site-develop]: http://docs.bernardomg.com/development/maven/querydsl-example
-[site-release]: http://docs.bernardomg.com/maven/querydsl-example
+[scm]: https://github.com/bernardo-mg/jooq-example
+[site-develop]: http://docs.bernardomg.com/development/maven/jooq-example
+[site-release]: http://docs.bernardomg.com/maven/jooq-example
