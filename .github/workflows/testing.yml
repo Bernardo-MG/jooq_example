@@ -29,6 +29,7 @@ jobs:
       postgres:
         image: postgres:9.6-bullseye
         env:
+          POSTGRES_DB: jpa_test
           POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432

@@ -150,7 +150,7 @@
          <id>postgres</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:postgresql://localhost:5432/postgres</database.url>
+            <database.url>jdbc:postgresql://localhost:5432/jpa_test</database.url>
             <database.username>postgres</database.username>
             <database.password>postgres</database.password>
             <!-- Spring context -->
