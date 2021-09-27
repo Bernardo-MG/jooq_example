@@ -662,13 +662,14 @@
             </configuration>
          </plugin>
          <plugin>
+            <!-- jOOQ Code Generator -->
             <groupId>org.jooq</groupId>
             <artifactId>jooq-codegen-maven</artifactId>
             <version>${jooq.version}</version>
             <executions>
                <execution>
-                  <id>jooq-codegen</id>
-                  <phase>generate-sources</phase>
+                  <id>generate-h2-jpa</id>
+                  <phase>process-classes</phase>
                   <goals>
                      <goal>generate</goal>
                   </goals>
@@ -677,6 +678,13 @@
             <configuration>
                <configurationFile>${project.build.resources[0].directory}/jooq-config.xml</configurationFile>
             </configuration>
+            <dependencies>
+               <dependency>
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-meta-extensions</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+            </dependencies>
          </plugin>
       </plugins>
    </build>
