@@ -22,23 +22,4 @@
       <property name="password" value="${jdbc.password}" />
    </bean>
 
-   <!-- Entity manager -->
-   <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
-      <property name="entityManagerFactory" ref="entityManagerFactory" />
-   </bean>
-
-   <!-- Transaction manager -->
-   <!-- Required for rolling back and handling tests -->
-   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-      <property name="entityManagerFactory" ref="entityManagerFactory" />
-      <property name="dataSource" ref="dataSource" />
-   </bean>
-
-   <!-- Activates transactionality -->
-   <tx:annotation-driven transaction-manager="transactionManager" />
-
-   <!-- ============================== PERSISTENCE VERSIONING =============================== -->
-
-   <import resource="classpath:context/persistence/liquibase.xml" />
-
 </beans>

@@ -15,11 +15,10 @@
    <!-- Properties -->
    <context:property-placeholder
       location="classpath:config/persistence/database/db-@spring.profile.database@.properties, 
-                  classpath:config/persistence/persistence-access.properties,
-                  classpath:config/persistence/jpa.properties,
-                  classpath:config/persistence/provider/jpa-@jpa.provider@.properties" />
+                  classpath:config/persistence/persistence-access.properties" />
 
    <!-- Contexts -->
-   <import resource="classpath:context/persistence/jpa-@jpa.provider@.xml" />
+   <import resource="classpath:context/persistence/persistence.xml" />
+   <import resource="classpath:context/persistence/liquibase.xml" />
 
 </beans>
