@@ -4,17 +4,17 @@ databaseChangeLog:
       author: Bernardo
       changes:
         - createTable:
-            tableName: example_entities
+            tableName: EXAMPLE_ENTITIES
             columns:
               - column:
-                  name: id
+                  name: ID
                   type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: NAME
                   type: varchar(50)
                   constraints:
                     nullable: false
