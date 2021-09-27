@@ -22,11 +22,11 @@
          <AppenderRef ref="console" />
       </Logger>
 
-      <Logger name="org.hibernate.SQL" level="off" additivity="false">
+      <Logger name="org.jooq.tools.LoggerListener" level="off" additivity="false">
          <AppenderRef ref="console" />
       </Logger>
 
-      <Logger name="org.hibernate.type" level="off" additivity="false">
+      <Logger name="org.jooq" level="off" additivity="false">
          <AppenderRef ref="console" />
       </Logger>
 
