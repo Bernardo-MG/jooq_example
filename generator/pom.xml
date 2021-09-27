@@ -148,8 +148,6 @@
                         </property>
                      </properties>
                   </database>
-                  <generate>
-                  </generate>
                   <target>
                      <packageName>com.bernardomg.example.jooq.model.generated</packageName>
                      <directory>${project.build.directory}/generated-sources/jooq</directory>

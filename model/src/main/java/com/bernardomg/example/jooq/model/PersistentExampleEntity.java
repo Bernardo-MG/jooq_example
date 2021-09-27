@@ -46,7 +46,7 @@ import com.google.common.base.MoreObjects;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Entity(name = "ExampleEntity")
-@Table(name = "EXAMPLE_ENTITIES")
+@Table(name = "example_entities")
 public class PersistentExampleEntity implements ExampleEntity {
 
     /**
@@ -60,7 +60,7 @@ public class PersistentExampleEntity implements ExampleEntity {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private Integer           id               = -1;
 
     /**
@@ -69,7 +69,7 @@ public class PersistentExampleEntity implements ExampleEntity {
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    @Column(name = "NAME", nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String            name             = "";
 
     /**

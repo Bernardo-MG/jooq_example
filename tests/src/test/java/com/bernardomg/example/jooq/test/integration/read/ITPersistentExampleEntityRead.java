@@ -32,6 +32,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.conf.RenderKeywordCase;
+import org.jooq.conf.RenderQuotedNames;
 import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.Assertions;
@@ -67,8 +68,8 @@ public class ITPersistentExampleEntityRead {
 
         connection = DataSourceUtils.getConnection(dataSource);
 
-        settings = new Settings()
-                .withRenderKeywordCase(RenderKeywordCase.LOWER);
+        settings = new Settings().withRenderKeywordCase(RenderKeywordCase.LOWER)
+                .withRenderQuotedNames(RenderQuotedNames.NEVER);
         context = DSL.using(connection, settings);
     }
 
