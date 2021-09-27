@@ -42,13 +42,13 @@ import com.bernardomg.example.jooq.test.config.annotation.PersistenceIntegration
 @DisplayName("JPA queries")
 public class ITPersistentExampleEntityRead {
 
-    @Value("jdbc.url")
+    @Value("${jdbc.url}")
     private String     url;
 
-    @Value("jdbc.username")
+    @Value("${jdbc.username}")
     private String     username;
 
-    @Value("jdbc.password")
+    @Value("${jdbc.password}")
     private String     password;
 
     private DSLContext context;
