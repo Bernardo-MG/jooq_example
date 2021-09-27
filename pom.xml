@@ -35,7 +35,7 @@
 
    <name>jOOQ Example</name>
    <description>An example showing how to use jOOQ</description>
-   <url>https://github.com/bernardo-mg/jooq-example</url>
+   <url>https://github.com/bernardo-mg/jooq_example</url>
    <inceptionYear>2021</inceptionYear>
 
    <licenses>
@@ -51,20 +51,20 @@
    <!-- ********************************************** -->
 
    <scm>
-      <connection>scm:git:https://github.com/bernardo-mg/jooq-example.git</connection>
-      <developerConnection>scm:git:https://github.com/bernardo-mg/jooq-example.git</developerConnection>
+      <connection>scm:git:https://github.com/bernardo-mg/jooq_example.git</connection>
+      <developerConnection>scm:git:https://github.com/bernardo-mg/jooq_example.git</developerConnection>
       <tag>head</tag>
-      <url>https://www.github.com/bernardo-mg/jooq-example</url>
+      <url>https://www.github.com/bernardo-mg/jooq_example</url>
    </scm>
 
    <issueManagement>
       <system>GitHub</system>
-      <url>https://www.github.com/bernardo-mg/jooq-example/issues</url>
+      <url>https://www.github.com/bernardo-mg/jooq_example/issues</url>
    </issueManagement>
 
    <ciManagement>
       <system>Travis CI</system>
-      <url>https://travis-ci.org/bernardo-mg/jooq-example</url>
+      <url>https://travis-ci.org/bernardo-mg/jooq_example</url>
       <notifiers />
    </ciManagement>
 
@@ -73,7 +73,7 @@
          <uniqueVersion>false</uniqueVersion>
          <id>releases</id>
          <name>Releases Repository</name>
-         <url>https://api.bintray.com/maven/bernardo-mg/maven/jooq-example</url>
+         <url>https://api.bintray.com/maven/bernardo-mg/maven/jooq_example</url>
       </repository>
       <snapshotRepository>
          <uniqueVersion>false</uniqueVersion>

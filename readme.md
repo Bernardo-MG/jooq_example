@@ -84,10 +84,10 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[issues]: https://github.com/bernardo-mg/jooq-example/issues
-[javadoc-develop]: http://docs.bernardomg.com/development/maven/jooq-example/apidocs/
-[javadoc-release]: http://docs.bernardomg.com/maven/jooq-example/apidocs
+[issues]: https://github.com/bernardo-mg/jooq_example/issues
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/jooq_example/apidocs/
+[javadoc-release]: http://docs.bernardomg.com/maven/jooq_example/apidocs
 [license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/jooq-example
-[site-develop]: http://docs.bernardomg.com/development/maven/jooq-example
-[site-release]: http://docs.bernardomg.com/maven/jooq-example
+[scm]: https://github.com/bernardo-mg/jooq_example
+[site-develop]: http://docs.bernardomg.com/development/maven/jooq_example
+[site-release]: http://docs.bernardomg.com/maven/jooq_example
