@@ -9,29 +9,19 @@
    <!-- ********************************************** -->
 
    <parent>
-      <groupId>com.bernardomg.maven</groupId>
-      <artifactId>base-pom</artifactId>
-      <version>1.4.4</version>
+   <groupId>com.bernardomg.example</groupId>
+   <artifactId>jooq-example</artifactId>
+   <version>1.1.0-SNAPSHOT</version>
    </parent>
-
-   <!-- ********************************************** -->
-   <!-- ******************* MODULES ****************** -->
-   <!-- ********************************************** -->
-
-   <modules>
-      <module>model</module>
-      <module>generator</module>
-      <module>tests</module>
-   </modules>
 
    <!-- ********************************************** -->
    <!-- **************** PROJECT INFO **************** -->
    <!-- ********************************************** -->
 
    <groupId>com.bernardomg.example</groupId>
-   <artifactId>jooq-example</artifactId>
+   <artifactId>generator</artifactId>
    <version>1.1.0-SNAPSHOT</version>
-   <packaging>pom</packaging>
+   <packaging>jar</packaging>
 
    <name>JPA Example</name>
    <description>An example showing how to use Querydsl</description>
@@ -420,6 +410,12 @@
    </dependencyManagement>
 
    <dependencies>
+      <dependency>
+         <!-- Model -->
+         <groupId>com.bernardomg.example</groupId>
+         <artifactId>model</artifactId>
+         <version>${project.version}</version>
+      </dependency>
       <!-- ============================================== -->
       <!-- =================== GUAVA ==================== -->
       <!-- ============================================== -->
@@ -653,6 +649,75 @@
                   <delimiter>@</delimiter>
                </delimiters>
             </configuration>
+         </plugin>
+         <plugin>
+            <!-- jOOQ Code Generator -->
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen-maven</artifactId>
+            <version>${jooq.version}</version>
+            <executions>
+               <execution>
+                  <id>generate-jpa</id>
+                  <goals>
+                     <goal>generate</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <generator>
+                  <database>
+                     <name>org.jooq.meta.extensions.jpa.JPADatabase</name>
+                     <includes>.*</includes>
+                     <properties>
+                        <property>
+                           <key>packages</key>
+                           <value>com.bernardomg.example.jooq.model</value>
+                        </property>
+                        <property>
+                           <key>useAttributeConverters</key>
+                           <value>true</value>
+                        </property>
+                        <property>
+                           <key>unqualifiedSchema</key>
+                           <value>none</value>
+                        </property>
+                     </properties>
+                  </database>
+                  <generate>
+                  </generate>
+                  <target>
+                     <packageName>com.bernardomg.example.jooq.model.generated</packageName>
+                     <directory>${project.build.directory}/generated-sources/jooq</directory>
+                  </target>
+               </generator>
+            </configuration>
+            <dependencies>
+               <dependency>
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-meta-extensions</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+         <plugin>
+            <!-- Build helper -->
+            <!-- Adds the generated files to the Maven classpath -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>add-jooq-generated-source</id>
+                  <goals>
+                     <goal>add-source</goal>
+                  </goals>
+                  <configuration>
+                     <sources>
+                        <!-- JPA meta-model -->
+                        <source>${project.build.directory}/generated-sources/jooq</source>
+                     </sources>
+                  </configuration>
+               </execution>
+            </executions>
          </plugin>
       </plugins>
    </build>
