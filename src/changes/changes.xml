@@ -6,8 +6,6 @@
 		<author email="programming@bernardomg.com">Bernardo Martínez Garrido</author>
 	</properties>
 	<body>
-      <release version="1.1.0" date="2021-09-21" description="">
-      </release>
 		<release version="1.0.0" date="2021-09-21" description="First release">
 			<action dev="bmg" type="update">
 				First release of the example.
