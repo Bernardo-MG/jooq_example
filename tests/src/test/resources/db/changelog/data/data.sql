@@ -1,2 +1,2 @@
-INSERT INTO example_entities (name) VALUES
+INSERT INTO EXAMPLE_ENTITIES (name) VALUES
    ('entity_01');
