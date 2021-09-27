@@ -247,10 +247,10 @@
       <junit.jupiter.version>5.8.0</junit.jupiter.version>
       <junit.platform.version>1.8.0</junit.platform.version>
       <liquibase.version>4.4.3</liquibase.version>
-      <log4j.version>2.13.3</log4j.version>
+      <log4j.version>2.14.1</log4j.version>
       <mysql.version>8.0.21</mysql.version>
       <postgresql.version>42.2.23</postgresql.version>
-      <slf4j.version>2.0.0-alpha1</slf4j.version>
+      <slf4j.version>2.0.0-alpha5</slf4j.version>
       <snakeyaml.version>1.29</snakeyaml.version>
       <spring.version>5.3.10</spring.version>
    </properties>
