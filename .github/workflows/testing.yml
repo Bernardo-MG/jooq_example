@@ -31,7 +31,6 @@ jobs:
         env:
           POSTGRES_DB: jpa_test
           POSTGRES_PASSWORD: postgres
-          POSTGRES_INITDB_ARGS: --lower-case-table-names=1
         ports:
           - 5432:5432
         options: >-
