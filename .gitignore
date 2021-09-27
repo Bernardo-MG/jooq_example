@@ -2,9 +2,9 @@
 /.git/
 
 # Compilation folders #
-/bin/
-/target/
-/build/
+**/bin/
+**/target/
+**/build/
 
 # Java compile files #
 *.class
@@ -16,11 +16,11 @@
 *.db
 
 # Log files #
-/*.log
-/*.log.*
+**/*.log
+**/*.log.*
 
 # Output folders #
-/test-output/
+**/test-output/
 
 # Eclipse files #
 .buildpath

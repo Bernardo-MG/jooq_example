@@ -1,6 +1,6 @@
-# Querydsl Example
+# jOOQ Example
 
-An example showing how to set up Querydsl.
+An example showing how to set up jOOQ.
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -10,7 +10,7 @@ An example showing how to set up Querydsl.
 
 ## Features
 
-- Querydsl with JPA and Hibernate
+- jOOQ with JPA
 
 ## Documentation
 
@@ -27,7 +27,7 @@ Documentation is also generated from the latest snapshot, taken from the 'develo
 The documentation site sources come along the source code (as it is a Maven site), so it is always possible to generate them using the following Maven command:
 
 ```
-mvn verify site -P h2,hibernate
+mvn verify site -P h2
 ```
 
 The verify phase is required, as otherwise some of the reports won't be created.
@@ -47,16 +47,12 @@ Maven profiles are included for setting up the database and JPA provider.
 | mysql    | MySQL database            |
 | postgres | PostgreSQL database       |
 
-| Profile     | Provider    |
-|-------------|-------------|
-| hibernate   | Hibernate   |
-
 ### Running the tests
 
 The project requires a database and a JPA provider for being able to run the integration tests:
 
 ```
-mvn verify -P h2,hibernate
+mvn verify -P h2
 ```
 
 ### Missing JPA metadata
@@ -88,10 +84,10 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[issues]: https://github.com/bernardo-mg/querydsl-example/issues
-[javadoc-develop]: http://docs.bernardomg.com/development/maven/querydsl-example/apidocs/
-[javadoc-release]: http://docs.bernardomg.com/maven/querydsl-example/apidocs
+[issues]: https://github.com/bernardo-mg/jooq_example/issues
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/jooq_example/apidocs/
+[javadoc-release]: http://docs.bernardomg.com/maven/jooq_example/apidocs
 [license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/querydsl-example
-[site-develop]: http://docs.bernardomg.com/development/maven/querydsl-example
-[site-release]: http://docs.bernardomg.com/maven/querydsl-example
+[scm]: https://github.com/bernardo-mg/jooq_example
+[site-develop]: http://docs.bernardomg.com/development/maven/jooq_example
+[site-release]: http://docs.bernardomg.com/maven/jooq_example

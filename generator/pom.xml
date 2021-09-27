@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+
+   <!-- ********************************************** -->
+   <!-- ****************** BASE POM ****************** -->
+   <!-- ********************************************** -->
+
+   <parent>
+      <groupId>com.bernardomg.example</groupId>
+      <artifactId>jooq-example</artifactId>
+      <version>1.0.0</version>
+   </parent>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROJECT INFO **************** -->
+   <!-- ********************************************** -->
+
+   <artifactId>generator</artifactId>
+   <packaging>jar</packaging>
+
+   <name>jOOQ Example - Generator</name>
+   <description>jOOQ example metamodel generator</description>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROPERTIES ****************** -->
+   <!-- ********************************************** -->
+
+   <properties>
+      <!-- ============================================== -->
+      <!-- =============== MANIFEST DATA ================ -->
+      <!-- ============================================== -->
+      <manifest.name>com/bernardomg/example/jooq/generator</manifest.name>
+      <!-- ============================================== -->
+      <!-- =========== DEPENDENCIES VERSIONS ============ -->
+      <!-- ============================================== -->
+      <h2.version>1.4.200</h2.version>
+      <javaee.api.version>2.2</javaee.api.version>
+      <jooq.version>3.15.3</jooq.version>
+      <junit.jupiter.version>5.8.0</junit.jupiter.version>
+      <junit.platform.version>1.8.0</junit.platform.version>
+      <log4j.version>2.14.1</log4j.version>
+      <slf4j.version>2.0.0-alpha5</slf4j.version>
+   </properties>
+
+   <!-- ********************************************** -->
+   <!-- *************** DEPENDENCIES ***************** -->
+   <!-- ********************************************** -->
+
+   <dependencies>
+      <!-- ============================================== -->
+      <!-- ================== PROJECT =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Model -->
+         <groupId>com.bernardomg.example</groupId>
+         <artifactId>model</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ==================== JOOQ ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- jOOQ -->
+         <groupId>org.jooq</groupId>
+         <artifactId>jooq</artifactId>
+         <version>${jooq.version}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================== LOGGERS =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- SLF4J API -->
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Log4j SLF4J Bridge -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-slf4j18-impl</artifactId>
+         <version>${log4j.version}</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <!-- Log4j core -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-core</artifactId>
+         <version>${log4j.version}</version>
+         <scope>provided</scope>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- JUnit Jupiter Engine -->
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-engine</artifactId>
+         <version>${junit.jupiter.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- JUnit Jupiter Platform -->
+         <groupId>org.junit.platform</groupId>
+         <artifactId>junit-platform-runner</artifactId>
+         <version>${junit.platform.version}</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+   <!-- ********************************************** -->
+   <!-- ******************* BUILD ******************** -->
+   <!-- ********************************************** -->
+
+   <build>
+      <defaultGoal>clean package</defaultGoal>
+      <plugins>
+         <plugin>
+            <!-- jOOQ Code Generator -->
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen-maven</artifactId>
+            <version>${jooq.version}</version>
+            <executions>
+               <execution>
+                  <id>generate-jpa</id>
+                  <goals>
+                     <goal>generate</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <generator>
+                  <database>
+                     <name>org.jooq.meta.extensions.jpa.JPADatabase</name>
+                     <includes>.*</includes>
+                     <properties>
+                        <property>
+                           <key>packages</key>
+                           <value>com.bernardomg.example.jooq.model</value>
+                        </property>
+                     </properties>
+                  </database>
+                  <target>
+                     <packageName>com.bernardomg.example.jooq.model.generated</packageName>
+                     <directory>${project.build.directory}/generated-sources/jooq</directory>
+                  </target>
+               </generator>
+            </configuration>
+            <dependencies>
+               <dependency>
+                  <!-- jOOQ Codegen -->
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-codegen</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- jOOQ Meta -->
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-meta-extensions</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- jOOQ Meta Hibernate -->
+                  <groupId>org.jooq</groupId>
+                  <artifactId>jooq-meta-extensions-hibernate</artifactId>
+                  <version>${jooq.version}</version>
+               </dependency>
+               <dependency>
+                  <!-- JPA API -->
+                  <groupId>javax.persistence</groupId>
+                  <artifactId>javax.persistence-api</artifactId>
+                  <version>${javaee.api.version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+         <plugin>
+            <!-- Build helper -->
+            <!-- Adds the generated files to the Maven classpath -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>add-jooq-generated-source</id>
+                  <goals>
+                     <goal>add-source</goal>
+                  </goals>
+                  <configuration>
+                     <sources>
+                        <!-- JPA meta-model -->
+                        <source>${project.build.directory}/generated-sources/jooq</source>
+                     </sources>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>

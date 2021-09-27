@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+
+   <!-- ********************************************** -->
+   <!-- ****************** BASE POM ****************** -->
+   <!-- ********************************************** -->
+
+   <parent>
+      <groupId>com.bernardomg.example</groupId>
+      <artifactId>jooq-example</artifactId>
+      <version>1.0.0</version>
+   </parent>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROJECT INFO **************** -->
+   <!-- ********************************************** -->
+
+   <artifactId>model</artifactId>
+   <packaging>jar</packaging>
+
+   <name>jOOQ Example - Model</name>
+   <description>jOOQ example model</description>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROPERTIES ****************** -->
+   <!-- ********************************************** -->
+
+   <properties>
+      <!-- ============================================== -->
+      <!-- =============== MANIFEST DATA ================ -->
+      <!-- ============================================== -->
+      <manifest.name>com/bernardomg/example/jooq/model</manifest.name>
+      <!-- ============================================== -->
+      <!-- =========== DEPENDENCIES VERSIONS ============ -->
+      <!-- ============================================== -->
+      <guava.version>31.0-jre</guava.version>
+      <javaee.api.version>2.2</javaee.api.version>
+      <javax.annotation.version>1.3.2</javax.annotation.version>
+      <jaxb.version>2.3.1</jaxb.version>
+      <jooq.version>3.15.3</jooq.version>
+      <junit.jupiter.version>5.8.0</junit.jupiter.version>
+      <junit.platform.version>1.8.0</junit.platform.version>
+      <log4j.version>2.14.1</log4j.version>
+      <slf4j.version>2.0.0-alpha5</slf4j.version>
+   </properties>
+
+   <!-- ********************************************** -->
+   <!-- *************** DEPENDENCIES ***************** -->
+   <!-- ********************************************** -->
+
+   <dependencies>
+      <!-- ============================================== -->
+      <!-- =================== GUAVA ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Guava -->
+         <groupId>com.google.guava</groupId>
+         <artifactId>guava</artifactId>
+         <version>${guava.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ==================== JPA ===================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- JPA API -->
+         <groupId>javax.persistence</groupId>
+         <artifactId>javax.persistence-api</artifactId>
+         <version>${javaee.api.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ==================== JAVAX =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- JavaX Annotation -->
+         <groupId>javax.annotation</groupId>
+         <artifactId>javax.annotation-api</artifactId>
+         <version>${javax.annotation.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================== LOGGERS =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- SLF4J API -->
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Log4j SLF4J Bridge -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-slf4j18-impl</artifactId>
+         <version>${log4j.version}</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <!-- Log4j core -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-core</artifactId>
+         <version>${log4j.version}</version>
+         <scope>provided</scope>
+      </dependency>
+   </dependencies>
+
+   <!-- ********************************************** -->
+   <!-- ******************* BUILD ******************** -->
+   <!-- ********************************************** -->
+
+   <build>
+      <defaultGoal>clean package</defaultGoal>
+   </build>
+
+</project>
