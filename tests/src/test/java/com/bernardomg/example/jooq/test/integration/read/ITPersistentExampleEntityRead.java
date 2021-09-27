@@ -24,15 +24,23 @@
 
 package com.bernardomg.example.jooq.test.integration.read;
 
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
+import org.jooq.conf.RenderKeywordCase;
+import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import com.bernardomg.example.jooq.model.generated.tables.ExampleEntities;
 import com.bernardomg.example.jooq.test.config.annotation.PersistenceIntegrationTest;
@@ -50,6 +58,9 @@ public class ITPersistentExampleEntityRead {
     @Value("${jdbc.password}")
     private String     password;
 
+    @Autowired
+    private DataSource dataSource;
+
     private DSLContext context;
 
     /**
@@ -61,7 +72,14 @@ public class ITPersistentExampleEntityRead {
 
     @BeforeEach
     public void loadDsl() {
-        context = DSL.using(url, username, password);
+        final Connection connection;
+        final Settings settings;
+
+        connection = DataSourceUtils.getConnection(dataSource);
+
+        settings = new Settings()
+                .withRenderKeywordCase(RenderKeywordCase.LOWER);
+        context = DSL.using(connection, settings);
     }
 
     @Test
