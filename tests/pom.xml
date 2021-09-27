@@ -245,18 +245,6 @@
             </exclusion>
          </exclusions>
       </dependency>
-      <dependency>
-         <!-- jOOQ Meta -->
-         <groupId>org.jooq</groupId>
-         <artifactId>jooq-meta</artifactId>
-         <version>${jooq.version}</version>
-      </dependency>
-      <dependency>
-         <!-- jOOQ Codegen -->
-         <groupId>org.jooq</groupId>
-         <artifactId>jooq-codegen</artifactId>
-         <version>${jooq.version}</version>
-      </dependency>
       <!-- ============================================== -->
       <!-- ================== LOGGERS =================== -->
       <!-- ============================================== -->
