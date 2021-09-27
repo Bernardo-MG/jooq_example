@@ -2,3 +2,13 @@ databaseChangeLog:
   - include:
       file: structure/example.yaml
       relativeToChangelogFile: true
+  - changeSet:
+      id: data
+      author: Bernardo
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: data/data.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
