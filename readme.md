@@ -10,7 +10,7 @@ An example showing how to set up jOOQ.
 
 ## Features
 
-- Querydsl with JPA and Hibernate
+- jOOQ with JPA
 
 ## Documentation
 
@@ -27,7 +27,7 @@ Documentation is also generated from the latest snapshot, taken from the 'develo
 The documentation site sources come along the source code (as it is a Maven site), so it is always possible to generate them using the following Maven command:
 
 ```
-mvn verify site -P h2,hibernate
+mvn verify site -P h2
 ```
 
 The verify phase is required, as otherwise some of the reports won't be created.
@@ -47,16 +47,12 @@ Maven profiles are included for setting up the database and JPA provider.
 | mysql    | MySQL database            |
 | postgres | PostgreSQL database       |
 
-| Profile     | Provider    |
-|-------------|-------------|
-| hibernate   | Hibernate   |
-
 ### Running the tests
 
 The project requires a database and a JPA provider for being able to run the integration tests:
 
 ```
-mvn verify -P h2,hibernate
+mvn verify -P h2
 ```
 
 ### Missing JPA metadata

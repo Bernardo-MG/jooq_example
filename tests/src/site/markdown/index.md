@@ -1,7 +1,7 @@
-# Querydsl Example
+# jOOQ Example
 
-An example showing how to set up Querydsl.
+An example showing how to set up jOOQ.
 
 ## Features
 
-- Querydsl with JPA and Hibernate
+- jOOQ with JPA

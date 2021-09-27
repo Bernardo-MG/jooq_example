@@ -5,7 +5,7 @@ The project is meant to be an example showcasing QueryDSL queries.
 There are some tests included to verify that these work as expected, and can be run with the verify command:
 
 ```
-mvn verify -P h2,hibernate
+mvn verify -P h2
 ```
 
 The tests require two profiles, one defining the database to be used, and another defining the provider.
@@ -22,12 +22,6 @@ Only the in-memory databases, such as H2, do not require additional configuratio
 | hsqldb   | HSQLDB     | In-memory |
 | mysql    | MySQL      | Service   |
 | postgres | PostgreSQL | Service   |
-
-### JPA provider profiles
-
-| Profile     | Provider    |
-|-------------|-------------|
-| hibernate   | Hibernate   |
 
 ## Differences between databases
 
