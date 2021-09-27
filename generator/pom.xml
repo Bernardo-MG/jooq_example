@@ -147,14 +147,6 @@
                            <key>packages</key>
                            <value>com.bernardomg.example.jooq.model</value>
                         </property>
-                        <property>
-                           <key>useAttributeConverters</key>
-                           <value>true</value>
-                        </property>
-                        <property>
-                           <key>unqualifiedSchema</key>
-                           <value>none</value>
-                        </property>
                      </properties>
                   </database>
                   <generate>
