@@ -32,6 +32,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
 import org.jooq.conf.RenderKeywordCase;
+import org.jooq.conf.RenderNameCase;
 import org.jooq.conf.RenderQuotedNames;
 import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
@@ -69,7 +70,8 @@ public class ITPersistentExampleEntityRead {
         connection = DataSourceUtils.getConnection(dataSource);
 
         settings = new Settings().withRenderKeywordCase(RenderKeywordCase.LOWER)
-                .withRenderQuotedNames(RenderQuotedNames.NEVER);
+                .withRenderQuotedNames(RenderQuotedNames.NEVER)
+                .withRenderNameCase(RenderNameCase.LOWER);
         context = DSL.using(connection, settings);
     }
 
