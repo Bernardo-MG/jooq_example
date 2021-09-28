@@ -48,8 +48,8 @@ import com.bernardomg.example.jooq.model.generated.tables.ExampleEntities;
 import com.bernardomg.example.jooq.test.config.annotation.PersistenceIntegrationTest;
 
 @PersistenceIntegrationTest
-@DisplayName("Queries")
-public class ITPersistentExampleEntityRead {
+@DisplayName("Queries with the example entity")
+public class ITExampleEntityRead {
 
     @Autowired
     private DataSource dataSource;
@@ -59,7 +59,7 @@ public class ITPersistentExampleEntityRead {
     /**
      * Default constructor.
      */
-    public ITPersistentExampleEntityRead() {
+    public ITExampleEntityRead() {
         super();
     }
 
