@@ -77,6 +77,17 @@ public class ITPersistentExampleEntityRead {
     }
 
     @Test
+    @DisplayName("Returns no data when there is no data")
+    public final void testQuery_NoData() {
+        final Result<Record> entities;
+
+        entities = context.select().from(ExampleEntities.EXAMPLE_ENTITIES)
+                .fetch();
+
+        Assertions.assertEquals(0, entities.size());
+    }
+
+    @Test
     @DisplayName("Applies filters to queries")
     @Sql("/sql/test_entity_multiple.sql")
     public final void testSelect_Filter() {
