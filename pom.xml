@@ -63,105 +63,41 @@
    </issueManagement>
 
    <ciManagement>
-      <system>Travis CI</system>
-      <url>https://travis-ci.org/bernardo-mg/jooq_example</url>
+      <system>Github</system>
+      <url>https://www.github.com/bernardo-mg/jooq_example/actions</url>
       <notifiers />
    </ciManagement>
 
-   <distributionManagement>
-      <repository>
-         <uniqueVersion>false</uniqueVersion>
-         <id>releases</id>
-         <name>Releases Repository</name>
-         <url>https://api.bintray.com/maven/bernardo-mg/maven/jooq_example</url>
-      </repository>
-      <snapshotRepository>
-         <uniqueVersion>false</uniqueVersion>
-         <id>snapshots</id>
-         <name>Snapshots Repository</name>
-         <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-      </snapshotRepository>
-   </distributionManagement>
+   <!-- ********************************************** -->
+   <!-- *********** ORGANIZATION AND MEMBERS ********* -->
+   <!-- ********************************************** -->
+
+   <organization>
+      <name>Bernardo Martínez Garrido</name>
+      <url>https://github.com/Bernardo-MG</url>
+   </organization>
+
+   <developers>
+      <developer>
+         <id>bmg</id>
+         <name>Bernardo Martínez Garrido</name>
+         <email>programming@bernardomg.com</email>
+         <url>https://github.com/Bernardo-MG</url>
+         <organization>Bernardo Martínez Garrido</organization>
+         <organizationUrl>https://github.com/Bernardo-MG</organizationUrl>
+         <roles>
+            <role>Developer</role>
+         </roles>
+         <timezone>+1</timezone>
+         <properties />
+      </developer>
+   </developers>
 
    <!-- ********************************************** -->
    <!-- ****************** PROFILES ****************** -->
    <!-- ********************************************** -->
 
    <profiles>
-      <profile>
-         <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, by detecting the version property -->
-         <id>eclipse-maven</id>
-         <activation>
-            <property>
-               <name>m2e.version</name>
-            </property>
-         </activation>
-         <build>
-            <pluginManagement>
-               <plugins>
-                  <plugin>
-                     <!-- m2e lifecycle mapping -->
-                     <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which Eclipse would otherwise reject. -->
-                     <!-- It has no real effect on Maven. -->
-                     <groupId>org.eclipse.m2e</groupId>
-                     <artifactId>lifecycle-mapping</artifactId>
-                     <version>${plugin.lifecycle.version}</version>
-                     <configuration>
-                        <lifecycleMappingMetadata>
-                           <pluginExecutions>
-                              <pluginExecution>
-                                 <!-- Maven processor plugin configuration -->
-                                 <!-- Fixes the errors with Eclipse not recognizing the plugin configuration -->
-                                 <pluginExecutionFilter>
-                                    <groupId>org.bsc.maven</groupId>
-                                    <artifactId>maven-processor-plugin</artifactId>
-                                    <versionRange>[0,)</versionRange>
-                                    <goals>
-                                       <!-- The goals are registered to m2e. -->
-                                       <goal>process</goal>
-                                    </goals>
-                                 </pluginExecutionFilter>
-                                 <action>
-                                    <!-- As m2e doesn't know what to do with the plugin, it is ignored to avoid error warnings. -->
-                                    <ignore />
-                                 </action>
-                              </pluginExecution>
-                              <pluginExecution>
-                                 <!-- Build helper plugin configuration -->
-                                 <pluginExecutionFilter>
-                                    <groupId>org.codehaus.mojo</groupId>
-                                    <artifactId>build-helper-maven-plugin</artifactId>
-                                    <versionRange>[1.0,)</versionRange>
-                                    <goals>
-                                       <goal>add-source</goal>
-                                       <goal>add-test-source</goal>
-                                       <goal>add-resource</goal>
-                                       <goal>add-test-resource</goal>
-                                       <goal>maven-version</goal>
-                                       <goal>parse-version</goal>
-                                       <goal>timestamp-property</goal>
-                                    </goals>
-                                 </pluginExecutionFilter>
-                                 <action>
-                                    <execute>
-                                       <runOnConfiguration>true</runOnConfiguration>
-                                       <runOnIncremental>true</runOnIncremental>
-                                    </execute>
-                                 </action>
-                              </pluginExecution>
-                           </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                        <downloadSources>true</downloadSources>
-                        <downloadJavadocs>true</downloadJavadocs>
-                     </configuration>
-                  </plugin>
-               </plugins>
-            </pluginManagement>
-         </build>
-      </profile>
       <!-- ============================================== -->
       <!-- ============= DEPLOYMENT PROFILES ============ -->
       <!-- ============================================== -->
@@ -205,31 +141,6 @@
          </properties>
       </profile>
    </profiles>
-
-   <!-- ********************************************** -->
-   <!-- *********** ORGANIZATION AND MEMBERS ********* -->
-   <!-- ********************************************** -->
-
-   <organization>
-      <name>Bernardo Martínez Garrido</name>
-      <url>https://github.com/Bernardo-MG</url>
-   </organization>
-
-   <developers>
-      <developer>
-         <id>bmg</id>
-         <name>Bernardo Martínez Garrido</name>
-         <email>programming@bernardomg.com</email>
-         <url>https://github.com/Bernardo-MG</url>
-         <organization>Bernardo Martínez Garrido</organization>
-         <organizationUrl>https://github.com/Bernardo-MG</organizationUrl>
-         <roles>
-            <role>Developer</role>
-         </roles>
-         <timezone>+1</timezone>
-         <properties />
-      </developer>
-   </developers>
 
    <!-- ********************************************** -->
    <!-- **************** PROPERTIES ****************** -->
