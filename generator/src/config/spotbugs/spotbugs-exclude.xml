@@ -3,7 +3,7 @@
    <Match>
       <Or>
          <!-- Ignores generated packages -->
-         <Package name="~.*\Q.*Entity" />
+         <Package name="~.*\generated\*" />
       </Or>
    </Match>
 </FindBugsFilter>

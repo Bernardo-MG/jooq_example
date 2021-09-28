@@ -334,8 +334,8 @@
                   <link>https://javadoc.io/doc/org.eclipse.persistence/javax.persistence/</link>
                </links>
                <sourceFileExcludes>
-                  <!-- Excludes metamodel -->
-                  <exclude>**/Q*Entity</exclude>
+                  <!-- Excludes generated code -->
+                  <exclude>**/generated/**/*</exclude>
                </sourceFileExcludes>
             </configuration>
          </plugin>
@@ -350,8 +350,8 @@
                   <ruleset>${project.basedir}/src/config/pmd/pmd-rules.xml</ruleset>
                </rulesets>
                <excludes>
-                  <!-- Excludes metamodel -->
-                  <exclude>**/Q*Entity</exclude>
+                  <!-- Excludes generated code -->
+                  <exclude>**/generated/**/*</exclude>
                </excludes>
             </configuration>
          </plugin>
