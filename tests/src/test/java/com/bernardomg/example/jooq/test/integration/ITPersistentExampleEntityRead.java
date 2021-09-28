@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.jooq.test.integration.read;
+package com.bernardomg.example.jooq.test.integration;
 
 import java.sql.Connection;
 
@@ -77,9 +77,24 @@ public class ITPersistentExampleEntityRead {
     }
 
     @Test
+    @DisplayName("Applies filters to queries")
+    @Sql("/sql/test_entity_multiple.sql")
+    public final void testSelect_Filter() {
+        final Result<Record> entities;
+
+        entities = context.select().from(ExampleEntities.EXAMPLE_ENTITIES)
+                .where(ExampleEntities.EXAMPLE_ENTITIES.NAME.eq("entity_02"))
+                .fetch();
+
+        Assertions.assertEquals(1, entities.size());
+        Assertions.assertEquals("entity_02", entities.iterator().next()
+                .getValue(ExampleEntities.EXAMPLE_ENTITIES.NAME));
+    }
+
+    @Test
     @DisplayName("Returns entities with an empty sample")
     @Sql("/sql/test_entity_single.sql")
-    public final void testQuery_NoSample() {
+    public final void testSelect_NoSample() {
         final Result<Record> entities;
 
         entities = context.select().from(ExampleEntities.EXAMPLE_ENTITIES)
