@@ -42,12 +42,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.test.context.jdbc.Sql;
 
 import com.bernardomg.example.jooq.model.generated.tables.ExampleEntities;
 import com.bernardomg.example.jooq.test.config.annotation.PersistenceIntegrationTest;
 
 @PersistenceIntegrationTest
-@DisplayName("JPA queries")
+@DisplayName("Queries")
 public class ITPersistentExampleEntityRead {
 
     @Autowired
@@ -77,6 +78,7 @@ public class ITPersistentExampleEntityRead {
 
     @Test
     @DisplayName("Returns entities with an empty sample")
+    @Sql("/sql/test_entity_single.sql")
     public final void testQuery_NoSample() {
         final Result<Record> entities;
 
