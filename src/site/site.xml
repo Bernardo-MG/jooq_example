@@ -44,18 +44,18 @@
          <item name="JavaDocs" href="./apidocs/" />
       </menu>
       <menu name="Code" inherit="bottom">
-         <item name="SCM" href="${project.scm.url}">
+         <item name="SCM" href="${this.scm.url}">
             <description>GitHub</description>
          </item>
-         <item name="CI" href="${project.ciManagement.url}">
-            <description>${project.ciManagement.system}</description>
+         <item name="CI" href="${this.ciManagement.url}">
+            <description>${this.ciManagement.system}</description>
          </item>
-         <item name="Issues" href="${project.issueManagement.url}">
-            <description>${project.issueManagement.system}</description>
+         <item name="Issues" href="${this.issueManagement.url}">
+            <description>${this.issueManagement.system}</description>
          </item>
       </menu>
       <menu name="Icons" inherit="bottom">
-         <item name="Github" img="fab fa-github" href="${project.scm.url}" />
+         <item name="Github" img="fab fa-github" href="${this.scm.url}" />
       </menu>
    </body>
 
