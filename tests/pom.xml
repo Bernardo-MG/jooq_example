@@ -261,6 +261,13 @@
          <scope>test</scope>
       </dependency>
       <dependency>
+         <!-- JUnit Jupiter API -->
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-api</artifactId>
+         <version>${junit.jupiter.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
          <!-- JUnit Jupiter Platform -->
          <groupId>org.junit.platform</groupId>
          <artifactId>junit-platform-runner</artifactId>
@@ -301,6 +308,12 @@
          <!-- Spring Transactions -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-tx</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Spring JDBC -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-jdbc</artifactId>
          <scope>test</scope>
       </dependency>
    </dependencies>
