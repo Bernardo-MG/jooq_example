@@ -16,7 +16,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-            MYSQL_DATABASE: jpa_test
+            MYSQL_DATABASE: testdb
             MYSQL_ROOT_PASSWORD: root
         ports:
             - 3306:3306
@@ -28,7 +28,7 @@ jobs:
       postgres:
         image: postgres:9.6-bullseye
         env:
-          POSTGRES_DB: jpa_test
+          POSTGRES_DB: testdb
           POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
