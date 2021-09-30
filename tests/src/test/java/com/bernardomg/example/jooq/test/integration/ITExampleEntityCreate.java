@@ -41,7 +41,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.db.datasource.DataSourceUtils;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import com.bernardomg.example.jooq.model.generated.tables.ExampleEntities;
 import com.bernardomg.example.jooq.model.generated.tables.records.ExampleEntitiesRecord;
@@ -78,7 +78,7 @@ public class ITExampleEntityCreate {
 
     @Test
     @DisplayName("Creates data")
-    public final void testQuery_NoData() {
+    public final void testCreate() {
         final ExampleEntitiesRecord entity;
         final Result<Record> entities;
 
