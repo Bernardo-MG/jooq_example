@@ -1,6 +1,6 @@
 # jOOQ Example
 
-An example showing how to set up jOOQ.
+Using the jOOQ DSL to handle queries.
 
 ## Features
 

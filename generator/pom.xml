@@ -156,18 +156,6 @@
             </configuration>
             <dependencies>
                <dependency>
-                  <!-- jOOQ Codegen -->
-                  <groupId>org.jooq</groupId>
-                  <artifactId>jooq-codegen</artifactId>
-                  <version>${jooq.version}</version>
-               </dependency>
-               <dependency>
-                  <!-- jOOQ Meta -->
-                  <groupId>org.jooq</groupId>
-                  <artifactId>jooq-meta-extensions</artifactId>
-                  <version>${jooq.version}</version>
-               </dependency>
-               <dependency>
                   <!-- jOOQ Meta Hibernate -->
                   <groupId>org.jooq</groupId>
                   <artifactId>jooq-meta-extensions-hibernate</artifactId>

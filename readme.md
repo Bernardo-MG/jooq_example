@@ -1,6 +1,6 @@
 # jOOQ Example
 
-An example showing how to set up jOOQ.
+Using the jOOQ DSL to handle queries.
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
