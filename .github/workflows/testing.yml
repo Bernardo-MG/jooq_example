@@ -49,6 +49,6 @@ jobs:
       uses: actions/cache@v2.1.6
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}-${{ matrix.db }}
     - name: Run all tests
       run: mvn clean verify -P ${{ matrix.db }}
