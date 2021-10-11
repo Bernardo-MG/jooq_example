@@ -24,9 +24,8 @@
 
 package com.bernardomg.example.jooq.model;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.Objects;
+import java.util.StringJoiner;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,8 +34,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import com.google.common.base.MoreObjects;
 
 /**
  * Persistent entity for the example application.
@@ -122,18 +119,19 @@ public class PersistentExampleEntity implements ExampleEntity {
 
     @Override
     public void setId(final Integer value) {
-        id = checkNotNull(value, "Received a null pointer as identifier");
+        id = Objects.requireNonNull(value,
+                "Received a null pointer as identifier");
     }
 
     @Override
     public void setName(final String value) {
-        name = checkNotNull(value, "Received a null pointer as name");
+        name = Objects.requireNonNull(value, "Received a null pointer as name");
     }
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("id", id).add("name", name)
-                .toString();
+        return new StringJoiner(" | ", this.getClass().getSimpleName() + "[ ",
+                " ]").add("id=" + id).add("name=" + name).toString();
     }
 
 }
